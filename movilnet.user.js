@@ -7,8 +7,8 @@
 // @match        http://aplicaciones.movilnet.com.ve/tumovilnetenlinea/*
 // @grant        none
 // @run-at       document-start
-// @downloadURL  https://raw.githubusercontent.com/unibend/movilnet-inicio-de-sesion/main/movilnet.js
-// @updateURL    https://raw.githubusercontent.com/unibend/movilnet-inicio-de-sesion/main/movilnet.js
+// @downloadURL  https://raw.githubusercontent.com/unibend/movilnet-inicio-de-sesion/main/movilnet.user.js
+// @updateURL    https://raw.githubusercontent.com/unibend/movilnet-inicio-de-sesion/main/movilnet.user.js
 // @license      MIT
 // ==/UserScript==
 
