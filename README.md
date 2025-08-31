@@ -29,4 +29,6 @@ Una vez que tengas Tampermonkey, haz clic en el siguiente enlace para instalar e
 
 Tampermonkey abrirá una nueva pestaña para confirmar la instalación. Simplemente haz clic en el botón **"Instalar"** y listo.
 
+Si al principio sigue sin fucnionar, recarga la página usando el botón F5.
+
 Para dudas o sugerencias puedes [abrir un issue](https://github.com/unibend/movilnet-inicio-de-sesion/issues/new/choose)
