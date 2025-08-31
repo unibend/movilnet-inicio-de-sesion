@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Movilnet Inicio de Sesion
 // @namespace    https://github.com/unibend/movilnet-inicio-de-sesion
-// @version      1.0
+// @version      1.1
 // @description  Un userscript que arregla el inicio de sesion de movilnet. 
 // @author       Ben
 // @match        http://aplicaciones.movilnet.com.ve/tumovilnetenlinea/*
