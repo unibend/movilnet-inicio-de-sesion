@@ -1,28 +1,28 @@
 // ==UserScript==
 // @name         Movilnet Inicio de Sesion
 // @namespace    https://github.com/unibend/movilnet-inicio-de-sesion
-// @version      1.1
-// @description  Un userscript que arregla el inicio de sesion de movilnet. 
+// @version      1.2
+// @description  Un userscript que arregla el inicio de sesion de movilnet.
 // @author       Ben
 // @match        http://aplicaciones.movilnet.com.ve/tumovilnetenlinea/*
 // @grant        none
 // @run-at       document-start
-// @downloadURL  https://raw.githubusercontent.com/unibend/movilnet-inicio-de-sesion/main/movilnet.user.js
-// @updateURL    https://raw.githubusercontent.com/unibend/movilnet-inicio-de-sesion/main/movilnet.user.js
 // @license      MIT
+// @downloadURL https://update.greasyfork.org/scripts/547966/Movilnet%20Inicio%20de%20Sesion.user.js
+// @updateURL https://update.greasyfork.org/scripts/547966/Movilnet%20Inicio%20de%20Sesion.meta.js
 // ==/UserScript==
 
 (function() {
     'use strict';
 
-    console.log("Movilnet Fixer Script: Initialized and waiting for login form...");
+    console.log("Movilnet Fixer Script: Initialized.");
 
     const applyFixes = () => {
         console.log("Movilnet Fixer Script: Login form detected. Applying fixes...");
 
         // Arreglar el inicio de sesion
         const passwordField = document.querySelector('input[name="password"]');
-        const submitButton = document.getElementById('enviar');  // ID of the submit button
+        const submitButton = document.getElementById('enviar'); // ID of the submit button
 
         if (passwordField) {
             passwordField.maxLength = 8;
@@ -65,19 +65,23 @@
         }
     };
 
-    // --- 3. MutationObserver (Existing Logic) ---
-    const observer = new MutationObserver((mutations, obs) => {
-        const passwordField = document.querySelector('input[name="password"]');
-        if (passwordField) {
-            applyFixes();
-            obs.disconnect();
-        }
+    // Esperar a que la pagina cargue antes de hacer cambios
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("Movilnet Fixer Script: DOM ready, setting up observer...");
+        const observer = new MutationObserver((mutations, obs) => {
+            const passwordField = document.querySelector('input[name="password"]');
+            if (passwordField) {
+                applyFixes();
+                obs.disconnect(); // Stop observing once we've found the form
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     });
 
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
 
     // Cierra la segunda ventana que se abre luego de iniciar sesion
     window.addEventListener('load', () => {
